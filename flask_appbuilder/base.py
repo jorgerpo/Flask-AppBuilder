@@ -161,6 +161,27 @@ class AppBuilder(object):
         app.config.setdefault("LANGUAGES", {"en": {"flag": "gb", "name": "English"}})
         app.config.setdefault("ADDON_MANAGERS", [])
         app.config.setdefault("FAB_API_MAX_PAGE_SIZE", 20)
+
+        app.config.setdefault("FAB_API_MAX_PAGE_SIZE", 20)
+
+        self.base_template = app.config.get(
+            "FAB_BASE_TEMPLATE",
+            self.base_template,
+        )
+        self.static_folder = app.config.get(
+            "FAB_STATIC_FOLDER",
+            self.static_folder,
+        )
+        self.static_url_path = app.config.get(
+            "FAB_STATIC_URL_PATH",
+            self.static_url_path,
+        )
+        _index_view = app.config.get('FAB_INDEX_VIEW', None)
+        if _index_view is not None:
+            self.indexview = dynamic_class_import(
+                _index_view
+            )
+
         self.app = app
         if self.update_perms:  # default is True, if False takes precedence from config
             self.update_perms = app.config.get('FAB_UPDATE_PERMS', True)
