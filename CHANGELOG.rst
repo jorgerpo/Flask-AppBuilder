@@ -1,6 +1,17 @@
 Flask-AppBuilder ChangeLog
 ==========================
 
+Improvements and Bug fixes on 2.1.3
+-----------------------------------
+
+- Fix, Index view override on class instantiation is discarded
+
+Improvements and Bug fixes on 2.1.2
+-----------------------------------
+
+- Fix, #993 App factory pattern, AppBuilder object can be fully configured using config keys
+- Fix, #994 If builtin role don't check db also, higher permission on DB would allow access
+
 Improvements and Bug fixes on 2.1.1
 -----------------------------------
 
